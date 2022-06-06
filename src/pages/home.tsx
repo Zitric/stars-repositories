@@ -1,9 +1,9 @@
 import { Heading, Spinner } from '@chakra-ui/react'
 
-import { Hero } from '../components/Hero'
-import { Container } from '../components/Container'
-import { Main } from '../components/Main'
-import { DarkModeSwitch } from '../components/DarkModeSwitch'
+import { Hero } from '../components/hero/Hero'
+import { Container } from '../components/container/Container'
+import { Main } from '../components/main/Main'
+import { DarkModeSwitch } from '../components/dark-mode-switch/DarkModeSwitch'
 import { TablesTabs } from '../components/tables-tabs'
 
 import { useHomeContext } from '../hooks/use-home'
