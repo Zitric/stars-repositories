@@ -30,5 +30,6 @@ module.exports = {
     '@typescript-eslint/explicit-function-return-type': 'off',
     '@typescript-eslint/no-explicit-any': 'warn',
     'react/prop-types': 'off',
+    '@typescript-eslint/no-var-requires': 0,
   },
 }
