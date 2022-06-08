@@ -1,10 +1,11 @@
-import { Heading, Spinner } from '@chakra-ui/react'
+import { Spinner } from '@chakra-ui/react'
 
 import { Hero } from '../components/hero/Hero'
 import { Container } from '../components/container/Container'
 import { Main } from '../components/main/Main'
 import { DarkModeSwitch } from '../components/dark-mode-switch/DarkModeSwitch'
 import { TablesTabs } from '../components/tables-tabs'
+import { ErrorMessage } from '../components/error-message'
 
 import { useHomeContext } from '../hooks/use-home'
 
@@ -16,9 +17,7 @@ const Home = () => {
       <Hero />
       <Main>
         {isError ? (
-          <Heading as='h2' size='xl' noOfLines={1}>
-            Failed to load
-          </Heading>
+          <ErrorMessage />
         ) : isLoading ? (
           <Spinner size='xl' />
         ) : (

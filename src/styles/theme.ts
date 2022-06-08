@@ -11,6 +11,13 @@ const breakpoints = createBreakpoints({
 })
 
 const theme = extendTheme({
+  styles: {
+    global: {
+      'html, body': {
+        width: '100vw !important',
+      },
+    },
+  },
   semanticTokens: {
     colors: {
       text: {
