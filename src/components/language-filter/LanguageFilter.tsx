@@ -1,5 +1,5 @@
 import styled from '@emotion/styled'
-import { FilterButton } from './FilterButton'
+import { FilterButton } from './filter-button'
 
 interface LanguageFilterProps {
   [key: string]: string | unknown

@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react'
 import { useLocalStorage } from './use-local-storage'
 import { useStarsRepositories } from './use-stars-repositories'
 
-import { createFilterObject } from '../helpers/utilFunctions'
+import { createFilterObject, isEveryFalsy } from '../helpers/functions'
 
 export const useHomeHook = () => {
   const { repos, isError, isLoading } = useStarsRepositories()
@@ -19,9 +19,12 @@ export const useHomeHook = () => {
   /* -------------------------- Every repos useEffect ------------------------- */
 
   useEffect(() => {
-    const filteredRepos = repos.filter(
-      ({ language }) => language && languageFilters[language] === true,
-    )
+    const filteredRepos = isEveryFalsy(languageFilters)
+      ? repos
+      : repos.filter(
+          ({ language }) => language && languageFilters[language] === true,
+        )
+
     setFilteredRepos(filteredRepos)
   }, [languageFilters, repos])
 
@@ -33,9 +36,11 @@ export const useHomeHook = () => {
   /* ------------------------ Favorite repos useEffect ------------------------ */
 
   useEffect(() => {
-    const filteredFavRepos = favoriteRepos.filter(
-      ({ language }) => language && languageFavFilters[language] === true,
-    )
+    const filteredFavRepos = isEveryFalsy(languageFavFilters)
+      ? favoriteRepos
+      : favoriteRepos.filter(
+          ({ language }) => language && languageFavFilters[language] === true,
+        )
     setFilteredFavoRepos(filteredFavRepos)
   }, [languageFavFilters, favoriteRepos])
 

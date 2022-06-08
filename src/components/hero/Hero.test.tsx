@@ -1,16 +1,21 @@
-import { render, screen } from '@testing-library/react'
-import Hero from './Hero'
+import { screen } from '@testing-library/react'
+import { render } from '../../test/utils'
+import { Hero } from './Hero'
 
-describe('Home', () => {
-  it('renders a heading', () => {
-    const { container } = render(<Hero />)
+describe('Hero', () => {
+  it('Should show the default title', () => {
+    render(<Hero />)
 
-    const heading = screen.getByRole('heading', {
-      name: /welcome to next\.js!/i,
-    })
+    const defaultTitle = screen.getByText('Most starred repositories')
 
-    expect(heading).toBeInTheDocument()
+    expect(defaultTitle).toBeInTheDocument()
+  })
 
-    expect(container).toMatchSnapshot()
+  it('Should show props title', () => {
+    render(<Hero title={'My favorite title'} />)
+
+    const defaultTitle = screen.getByText('My favorite title')
+
+    expect(defaultTitle).toBeInTheDocument()
   })
 })

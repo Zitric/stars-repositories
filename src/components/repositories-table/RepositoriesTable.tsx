@@ -14,8 +14,7 @@ import { ExternalLinkIcon } from '@chakra-ui/icons'
 import { HeartIcon, HeartOutlineIcon } from 'chakra-ui-ionicons'
 import styled from '@emotion/styled'
 
-import { TableHead } from './TableHead'
-
+import { TableHead } from './table-head'
 import { useHomeContext } from '../../hooks/use-home'
 
 interface RepositoriesTableProps {
