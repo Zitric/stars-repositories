@@ -4978,11 +4978,6 @@ use-sidecar@^1.0.1, use-sidecar@^1.0.5:
     detect-node-es "^1.1.0"
     tslib "^2.0.0"
 
-using@^1.0.0-alpha-1:
-  version "1.0.0-alpha-1"
-  resolved "https://registry.yarnpkg.com/using/-/using-1.0.0-alpha-1.tgz#a999ade841a718fb0e445f50a01354c1d997c275"
-  integrity sha1-qZmt6EGnGPsORF9QoBNUwdmXwnU=
-
 v8-compile-cache@^2.0.3:
   version "2.3.0"
   resolved "https://registry.yarnpkg.com/v8-compile-cache/-/v8-compile-cache-2.3.0.tgz#2de19618c66dc247dcfb6f99338035d8245a2cee"

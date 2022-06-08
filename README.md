@@ -1,35 +1,32 @@
-# Example app with [chakra-ui](https://github.com/chakra-ui/chakra-ui) and TypeScript
-
-This example features how to use [chakra-ui](https://github.com/chakra-ui/chakra-ui) as the component library within a Next.js app with TypeScript.
-
-Next.js and chakra-ui have built-in TypeScript declarations, so we'll get autocompletion for their modules straight away.
-
-We are connecting the Next.js `_app.js` with `chakra-ui`'s Provider and theme so the pages can have app-wide dark/light mode. We are also creating some components which shows the usage of `chakra-ui`'s style props.
-
-## Deploy your own
-
-Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example) or preview live with [StackBlitz](https://stackblitz.com/github/vercel/next.js/tree/canary/examples/with-chakra-ui)
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/vercel/next.js/tree/canary/examples/with-chakra-ui-typescript&project-name=with-chakra-ui&repository-name=with-chakra-ui)
+# The most starred repositories
 
 ## How to use
 
-### Using `create-next-app`
+After cloning de repository you would need to run this command to make the
+project works in a local environment.
 
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init), [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/), or [pnpm](https://pnpm.io) to bootstrap the example:
+`yarn install && yarn dev`
 
-```bash
-npx create-next-app --example with-chakra-ui with-chakra-ui-app
-# or
-yarn create next-app --example with-chakra-ui with-chakra-ui-app
-# or
-pnpm create next-app --example with-chakra-ui with-chakra-ui-app
-```
+After that, you could go to your browser and write `http://localhost:3000/` to
+see the project.
 
-Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
+The project is hosted in this [link](https://stars-repositories.vercel.app/home)
 
-## Notes
+## What the project is about
 
-Chakra has supported Gradients and RTL in `v1.1`. To utilize RTL, [add RTL direction and swap](https://chakra-ui.com/docs/features/rtl-support).
+The project is an app where you can see the most starred repositories from
+Github in the last seven days. The repositories' list shows you some data about
+the repositories like numbers of starts, the name, the owner of the repository
+and the description, that will appear when you put the cursor over the
+repository row.
 
-If you don't have multi-direction app, you should make `<Html lang="ar" dir="rtl">` inside `_document.ts`.
+You have the option to add those repositories to a favourite list. Those
+favourites repositories will be stored in the Local Storage of the browser and
+will stay there even if they wouldn't be in the most starred repositories list
+in the last seven days.
+
+There is a link button to go to the Github repository.
+
+Also, you have the option to filter the repositories by language. At the
+beginning you can see the whole list of repositories and when you click on a
+language button, you could see the repositories that have used this language.
