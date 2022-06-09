@@ -1,3 +1,18 @@
+export const isEveryFalsy = (array: object) =>
+  Object.values(array)
+    .map(value => value)
+    .every(item => item === false)
+
+export const calculateFilteredRepos = (
+  languagesFilters: object,
+  repos: Repository[],
+) =>
+  isEveryFalsy(languagesFilters)
+    ? repos
+    : repos.filter(
+        ({ language }) => language && languagesFilters[language] === true,
+      )
+
 export const createFilterObject = (
   array: Repository[],
   predicate: (repo: Repository) => string,
@@ -9,8 +24,3 @@ export const createFilterObject = (
 
   return object
 }
-
-export const isEveryFalsy = (array: any) =>
-  Object.values(array)
-    .map(value => value)
-    .every(item => item === false)

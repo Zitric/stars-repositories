@@ -3,8 +3,10 @@ import { useState, useEffect, useCallback } from 'react'
 
 import { useLocalStorage } from './use-local-storage'
 import { useStarsRepositories } from './use-stars-repositories'
-
-import { createFilterObject, isEveryFalsy } from '../helpers/functions'
+import {
+  calculateFilteredRepos,
+  createFilterObject,
+} from '../helpers/functions'
 
 export const useHomeHook = () => {
   const { repos, isError, isLoading } = useStarsRepositories()
@@ -19,11 +21,7 @@ export const useHomeHook = () => {
   /* -------------------------- Every repos useEffect ------------------------- */
 
   useEffect(() => {
-    const filteredRepos = isEveryFalsy(languageFilters)
-      ? repos
-      : repos.filter(
-          ({ language }) => language && languageFilters[language] === true,
-        )
+    const filteredRepos = calculateFilteredRepos(languageFilters, repos)
 
     setFilteredRepos([...filteredRepos])
   }, [languageFilters, repos])
@@ -36,11 +34,11 @@ export const useHomeHook = () => {
   /* ------------------------ Favorite repos useEffect ------------------------ */
 
   useEffect(() => {
-    const filteredFavRepos = isEveryFalsy(languageFavFilters)
-      ? favoriteRepos
-      : favoriteRepos.filter(
-          ({ language }) => language && languageFavFilters[language] === true,
-        )
+    const filteredFavRepos = calculateFilteredRepos(
+      languageFavFilters,
+      favoriteRepos,
+    )
+
     setFilteredFavoRepos([...filteredFavRepos])
   }, [languageFavFilters, favoriteRepos])
 
@@ -52,7 +50,7 @@ export const useHomeHook = () => {
     setLanguageFavFilters({ ...languageFavFilters })
   }, [favoriteRepos])
 
-  /* --------------------------------- Methods -------------------------------- */
+  /* ---------------------------- Methods to export --------------------------- */
 
   const isFavoriteRepo = (id: number) =>
     favoriteRepos.some(item => item.id === id)
